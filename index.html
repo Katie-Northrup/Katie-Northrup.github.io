@@ -54,7 +54,7 @@
         </div>
     </div>-->
 
-    <div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -74,13 +74,13 @@
 
     <script type="text/javascript">
         $(window).on('load', function () {
-            $('#smallModal').modal('show');
+            $('#passwordModal').modal('show');
         });
 
         function check() {
             var element = document.getElementById('answer').value;
             if (element == "IheartWine") {
-                document.getElementById('smallModal').hide;
+                $('#passwordModal').modal('hide');
             }
         }
     </script>
