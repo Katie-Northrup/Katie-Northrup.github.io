@@ -64,7 +64,7 @@
                     <input type="text" id="answer" />
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="enter" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                    <button type="button" id="enter" onclick="check()" class="btn btn-primary" data-dismiss="modal">Submit</button>
                 </div>
             </div>
         </div>
@@ -76,8 +76,10 @@
             $('#smallModal').modal('show');
         });
 
-        var element = document.getElementById('smallModal').value;
-        console.log(element);
+        function check() {
+            var element = document.getElementById('smallModal').value;
+            console.log(element);
+        }
     </script>
 
 </body>
