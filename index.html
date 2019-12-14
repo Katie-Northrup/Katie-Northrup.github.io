@@ -2,17 +2,31 @@
 <html>
 <head>
     <link rel="shortcut icon" href="https://i.imgur.com/dATLT9C.png" />
+    <meta property="og:title" content="Abby Blaney">
+    <meta property="og:description" content="Abby Blaney">
+    <meta property="og:image" content="https://imgur.com/b5189e5c-0621-44c4-b1f6-a2510ff478ec" />
+    <!-- First include jquery js -->
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </head>
 <body style="background-image: url('https://i.imgur.com/jPsF1dH.jpg'); background-size: 100%; overflow-y: scroll;">
     <div class="header">
-        <a href="index.html" style="color: white; text-decoration:none; margin-right:10px;">Home</a><span style="margin-right: 10px;">|</span>
-        <a href="twitter.html" style="color: white; text-decoration:none; margin-right:10px;">Funny Twitter Posts</a><span style="margin-right: 10px;">|</span>
-        <a href="cats.html" style="color: white; text-decoration:none; margin-right:10px;">Cat Pictures</a><span style="margin-right: 10px;">|</span>
-        <a href="dogs.html" style="color: white; text-decoration:none; margin-right:10px;">Dog Pictures</a><span style="margin-right: 10px;">|</span>
-        <a href="ellen.html" style="color: white; text-decoration:none; margin-right:10px;">Ellen Videos</a><span style="margin-right: 10px;">|</span>
-        <a href="glutenfree.html" style="color: white; text-decoration:none; margin-right:10px;">Gluten Free Recipes</a><span style="margin-right: 10px;">|</span>
-        <a href="coffee.html" style="color: white; text-decoration:none; margin-right:10px;">Coffee</a><span style="margin-right: 10px;">|</span>
-        <a href="zacefron.html" style="color: white; text-decoration:none;">Zac Efron Pictures</a>
+        <a href="index" style="color: white; text-decoration:none; margin-right:10px;">Home</a><span style="margin-right: 10px;">|</span>
+        <a href="twitter" style="color: white; text-decoration:none; margin-right:10px;">Funny Twitter Posts</a><span style="margin-right: 10px;">|</span>
+        <a href="cats" style="color: white; text-decoration:none; margin-right:10px;">Cat Pictures</a><span style="margin-right: 10px;">|</span>
+        <a href="dogs" style="color: white; text-decoration:none; margin-right:10px;">Dog Pictures</a><span style="margin-right: 10px;">|</span>
+        <a href="ellen" style="color: white; text-decoration:none; margin-right:10px;">Ellen Videos</a><span style="margin-right: 10px;">|</span>
+        <a href="glutenfree" style="color: white; text-decoration:none; margin-right:10px;">Gluten Free Recipes</a><span style="margin-right: 10px;">|</span>
+        <a href="coffee" style="color: white; text-decoration:none; margin-right:10px;">Coffee</a><span style="margin-right: 10px;">|</span>
+        <a href="zacefron" style="color: white; text-decoration:none;">Zac Efron Pictures</a>
     </div>
     <h1>Welcome to AbbyBlaney.com, where all of Abby Blaney's favourite things are stored for easy access.</h1>
     <style>
@@ -24,5 +38,102 @@
             font-size: 25px;
         }
     </style>
+
+    <!-- Modal -->
+    <div class="modal fade" id="introModal" tabindex="-1" role="dialog" aria-labelledby="introModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Appreciation Check Point</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Is this the coolest gift you've ever received or what?</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="youMayContinue" class="btn btn-success" onclick="continueToPassword()">Dope</button>
+                    <button type="button" id="wrongAnswer" class="btn btn-danger">Stupid</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Appreciation Check Point</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Right answer!! This is dope. Now, what was the password I gave you?</p>
+                    <input type="password" placeholder="Enter Password Here" id="answer" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="enter" onclick="check()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="secretModal" tabindex="-1" role="dialog" aria-labelledby="secretModal" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">I Love You Loser</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        This message is for you and you only. Just wanted to say how much I appreciate you and
+                        love the shit outta you. P.S. if you show anyone this message I'll add you to my kill
+                        list. OKAY LOVE YOU BYE.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-success">Okay Cool! Let's Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="intruderModal" tabindex="-1" role="dialog" aria-labelledby="intruderModal" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">You're not Abby</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Nice try. You're not Abby, but I guess you can see the site anyways. Enjoy all of Abbys Favourite things!!!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            $('#introModal').modal('show');
+        });
+
+        function continueToPassword() {
+            $('#introModal').modal('hide');
+            $('#passwordModal').modal('show');
+        }
+
+        function check() {
+            var element = document.getElementById('answer').value;
+            if (element != "IheartWine") {
+                $('#passwordModal').modal('hide');
+                $('#intruderModal').modal('show');
+            }
+            else if (element == "IheartWine") {
+                $('#passwordModal').modal('hide');
+                $('#secretModal').modal('show');
+            }
+        }
+    </script>
+
 </body>
 </html>
