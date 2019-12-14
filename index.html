@@ -37,7 +37,7 @@
     </style>
 
     <!-- Modal -->
-    <!--<div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal fade" id="introModal" tabindex="-1" role="dialog" aria-labelledby="introModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -47,21 +47,21 @@
                     <h3>Is this the coolest gift you've ever received or what?</h3>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="youMayContinue" class="btn btn-success" data-dismiss="modal">Dope</button>
+                    <button type="button" id="youMayContinue" class="btn btn-success" on-click="continueToPassword()">Dope</button>
                     <button type="button" id="wrongAnswer" class="btn btn-danger">Stupid</button>
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
 
-    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">Appreciation Check Point</h4>
                 </div>
                 <div class="modal-body">
-                    <p>What was the password I gave you?</p>
+                    <p>Right answer!! This is dope. Now, what was the password I gave you?</p>
                     <input type="password" id="answer" />
                 </div>
                 <div class="modal-footer">
@@ -71,16 +71,63 @@
         </div>
     </div>
 
+    <div class="modal fade" id="secretModal" tabindex="-1" role="dialog" aria-labelledby="secretModal" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">I Love You Loser</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        This message is for you and you only. Just wanted to say how much I appreciate you and
+                        love the shit outta you. P.S. if you show anyone this message I'll add you to my kill
+                        list. OKAY LOVE YOU BYE.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-success">Okay Cool! Let's Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="intruderModal" tabindex="-1" role="dialog" aria-labelledby="intruderModal" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">You're not Abby</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Nice try. You're not Abby, but I guess you can see the site anyways. Enjoy all of Abbys Favourite things!!!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-success">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript">
         $(window).on('load', function () {
-            $('#passwordModal').modal('show');
+            $('#introModal').modal('show');
         });
+
+        function continueToPassword() {
+            $('#introModal').modal('hide');
+            $('#passwordModal').modal('show');
+        }
 
         function check() {
             var element = document.getElementById('answer').value;
-            if (element == "IheartWine") {
+            if (element != "IheartWine") {
                 $('#passwordModal').modal('hide');
+                $('#intruderModal').modal('show');
+            }
+            else if (element == "IheartWine") {
+                $('#passwordModal').modal('hide');
+                $('#secretModal').modal('show');
             }
         }
     </script>
