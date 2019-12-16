@@ -124,15 +124,16 @@
 
         function check() {
             var element = document.getElementById('answer').value;
-            if (element != "IheartWine") {
+	        var hashedPass = CryptoJS.MD5(element).words.join('');
+	        if (hashedPass != "746190649-7209970281360996394-702071854") {
                 $('#passwordModal').modal('hide');
                 $('#intruderModal').modal('show');
             }
-            else if (element == "IheartWine") {
+            else {
                 $('#passwordModal').modal('hide');
                 $('#secretModal').modal('show');
             }
-        }
+        } 
     </script>
 
 </body>
