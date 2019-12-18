@@ -81,8 +81,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">I Love You Loser</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="secretMessage">
                     <p>
+                        0e19b707f3d3186f56800e45410fe0d9
                         This message is for you and you only. Just wanted to say how much I appreciate you and
                         love the shit outta you. P.S. if you show anyone this message I'll add you to my kill
                         list. OKAY LOVE YOU BYE.
@@ -133,6 +134,8 @@
             else {
                 $('#passwordModal').modal('hide');
                 $('#secretModal').modal('show');
+                var encrypted = CryptoJS.AES.encrypt("This message is for you and you only. Just wanted to say how much I appreciate you and love the shit outta you. P.S. if you show anyone this message I'll add you to my kill list. OKAY LOVE YOU BYE.", "Secret Passphrase");
+                console.log(encrypted)
             }
         } 
     </script>
